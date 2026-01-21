@@ -9,14 +9,16 @@ type CatImageProps = {
 };
 
 export function CatImage({ url }: CatImageProps) {
+  console.log("cat-image(クライアントサイド) 最初");
   // (2) useStateを使って状態を管理
   const [imageUrl, setImageUrl] = useState(url);
 
   // (3) 画像を取得する関数を定義
   const refreshImage = async () => {
     setImageUrl(""); // 初期化
-    const image = await fetchImage();
+    const image = await fetch("/api/cat"); // API経由で取得
     setImageUrl(image.url);
+    console.log("cat-image(クライアントサイド) リフレッシュ");
   };
 
   return (
