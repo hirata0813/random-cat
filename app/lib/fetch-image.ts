@@ -10,6 +10,7 @@ export async function fetchImage(): Promise<Image> {
   const apiKey = process.env.CAT_API_KEY;
 
   if (!apiKey) {
+    console.log("VERCEL ENV:", process.env.CAT_API_KEY);
     throw new Error("環境変数 CAT_API_KEY が設定されていません");
   }
 
