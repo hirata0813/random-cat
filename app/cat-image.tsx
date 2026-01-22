@@ -16,9 +16,9 @@ export function CatImage({ url }: CatImageProps) {
   // (3) 画像を取得する関数を定義
   const refreshImage = async () => {
     setImageUrl(""); // 初期化
-    const image = await fetch("/api/cat"); // API経由で取得
+    const res = await fetch("/api/cat"); // API経由で取得
+    const image = await res.json(); // response オブジェクトは，サーバ内で.json()していても，HTTPを経由すると文字列になるので，クライアント側でも.json()が必要
     setImageUrl(image.url);
-    console.log("cat-image(クライアントサイド) リフレッシュ");
   };
 
   return (

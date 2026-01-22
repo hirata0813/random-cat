@@ -27,5 +27,6 @@ export async function fetchImage(): Promise<Image> {
   }
 
   const images: Image[] = await res.json();
+  console.log("images:", images[0].url);
   return images[0];
 }

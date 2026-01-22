@@ -1,4 +1,6 @@
 // app/api/cat/route.ts
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { fetchImage } from "@/app/lib/fetch-image";
 
